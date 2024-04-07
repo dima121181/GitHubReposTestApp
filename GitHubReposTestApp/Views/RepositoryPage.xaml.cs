@@ -26,6 +26,9 @@ namespace GitHubReposTestApp.Views {
             if (Properties != null)
                 foreach (PropertyInfo Property in Properties) {
                     try {
+                        if (string.IsNullOrWhiteSpace(Method.GetString(ViewModel[Property.Name])))
+                            continue;
+
                         Grid GridProperty = new Grid {
                             BackgroundColor = Color.Transparent,
                             ColumnSpacing = 0,
